@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import spring6restmvc.springframework.exceptions.NotFoundException;
 import spring6restmvc.springframework.model.Customer;
 import spring6restmvc.springframework.services.CustomerService;
 import spring6restmvc.springframework.services.CustomerServiceImpl;
@@ -65,6 +66,13 @@ class CustomerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.uuid", is(testCustomer.getUuid().toString())));
+    }
+
+    @Test
+    void testGetCustomerByIdNotFound() throws Exception{
+        given(customerService.getCustomerById(any(UUID.class))).willThrow(NotFoundException.class);
+        mockMvc.perform(get("/api/v1/customer/" + UUID.randomUUID()))
+                .andExpect(status().isNotFound());
     }
 
     @Test

@@ -6,6 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import spring6restmvc.springframework.exceptions.NotFoundException;
 import spring6restmvc.springframework.model.Beer;
 import spring6restmvc.springframework.services.BeerService;
 
