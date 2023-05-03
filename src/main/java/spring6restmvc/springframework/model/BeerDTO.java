@@ -3,8 +3,7 @@ package spring6restmvc.springframework.model;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -12,7 +11,7 @@ import java.util.UUID;
 
 @Builder
 @Data
-public class Beer {
+public class BeerDTO {
     private UUID uuid;
     private Integer version;
     private String beerName;

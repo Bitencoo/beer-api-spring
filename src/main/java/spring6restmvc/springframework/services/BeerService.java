@@ -1,15 +1,16 @@
 package spring6restmvc.springframework.services;
 
-import spring6restmvc.springframework.model.Beer;
+import spring6restmvc.springframework.model.BeerDTO;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface BeerService {
-    List<Beer> listBeers();
-    Beer getBeerById(UUID uuid);
-    Beer saveBeer(Beer beer);
-    void updateById(UUID beerId, Beer beer);
-    void deleteById(UUID beerId);
-    void updateBeetPatchById(UUID beerId, Beer beer);
+    List<BeerDTO> listBeers();
+    Optional<BeerDTO> getBeerById(UUID uuid);
+    BeerDTO saveBeer(BeerDTO beerDTO);
+    Optional<BeerDTO> updateById(UUID beerId, BeerDTO beerDTO);
+    boolean deleteById(UUID beerId);
+    void updateBeetPatchById(UUID beerId, BeerDTO beerDTO);
 }
